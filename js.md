@@ -1,4 +1,5 @@
 #OOP in JS
+
 ##class in js
 ```
 function Person(name) {
@@ -94,8 +95,59 @@ typeof + "a"                  // Returns "number"
 ```
 
 #DOM
+```
 document.body.style.backgroundColor = "red";
 
 element.addEventListener("click", handler, false);
 or
 element.onlick = function(){}
+
+elem.addEventListener( "click" , handler, false) // assign the handler
+
+elem.removeEventListener( "click", handler, false) // remove the handler
+
+```
+
+##form manipulation
+```
+var form = document.querySelector('form');
+var fname = document.getElementById('fname');
+var lname = document.getElementById('lname');
+var submit = document.getElementById('submit');
+var para = document.querySelector('p');
+
+form.onsubmit = function(e) {
+  if(fname.value === '' || lname.value === '') {
+    e.preventDefault();
+    para.textContent = 'You need to fill in both names!'
+  }
+}
+```
+
+##closure and scope
+If a variable is set, but not found anywhere, then it is created in the outmost LexicalEnvironment, which is window
+
+##AJAX
+
+```
+function loadXMLDoc() {
+    var xmlhttp = new XMLHttpRequest();
+
+    xmlhttp.onreadystatechange = function() {
+        if (xmlhttp.readyState == XMLHttpRequest.DONE ) {
+           if (xmlhttp.status == 200) {
+               document.getElementById("myDiv").innerHTML = xmlhttp.responseText;
+           }
+           else if (xmlhttp.status == 400) {
+              alert('There was an error 400');
+           }
+           else {
+               alert('something else other than 200 was returned');
+           }
+        }
+    };
+
+    xmlhttp.open("GET", "ajax_info.txt", true);
+    xmlhttp.send();
+}
+```

@@ -33,6 +33,13 @@ $strArr = explode(" ", trim($str));
 9. array_fill(startIndex, number of elements, value); just like fill 10 0s into empty array $arr = array_fill(0, 10, 0);
 10. count() Counts all elements in an array, or something in an object.
 11. unset($array[index]) - remove an array element
+12. array work as queue
+
+```
+$stack = array("orange", "banana", "apple", "raspberry");
+
+$fruit = array_shift($stack);
+```
 
 ##Array Sort
 1. asort($arr) sort array by value in asending order.
